@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "prisma generate && npx tsc",
+    "start": "node src/main.js"
+  },
   "dependencies": {
     "@prisma/client": "5.13.0",
     "ethers": "^6.12.1",
