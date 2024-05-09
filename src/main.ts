@@ -1,6 +1,7 @@
 import express from "express";
-import { User, Transaction, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import jwt from "jsonwebtoken";
+import cors from "cors";
 import {
   getAddress,
   hexlify,
@@ -24,6 +25,7 @@ type AuthenticateBody = {
 };
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/api/wallets/:address/nonce", async (req, res) => {
   if (!isAddress(req.params.address)) {
